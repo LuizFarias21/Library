@@ -1,18 +1,20 @@
 const addBook = document.querySelector('.add-book');
-const section2 = document.querySelector('.section-2');
-let btnRemove;
-let card;
+const section = document.querySelector('section');
 const myLibrary = [];
-
-function Book(title, author, pages, read) {
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.read = read;
+class Book {
+    constructor(title, author, pages, read) {
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.read = read;
+    }
 }
 
-const example = new Book('Um guia para ser feliz', 'Pedro Ferreira', 224, true);
-myLibrary.push(example);
+// Example
+
+const example1 = new Book('O homem mais rico da Babilônia', 'George S Clason', 160, false);
+const example2 = new Book('Pai rico, pai pobre', 'Robert T. Kiyosaki ', 336, true);
+myLibrary.push(example1, example2);
 appendBook();
 
 addBook.addEventListener('click', addBookToLibrary);
@@ -31,11 +33,11 @@ function addBookToLibrary() {
 }
 
 function appendBook() {
-    section2.innerHTML = '';
+    section.innerHTML = '';
     for (let i = 0; i < myLibrary.length; i++) {
 
         console.log(myLibrary[i]);
-        card = document.createElement('div');
+        const card = document.createElement('div');
         card.className = 'card';
 
         const title = document.createElement('span');
@@ -61,20 +63,15 @@ function appendBook() {
             btnStatus.textContent = 'NOT READED';
         }
 
-        btnRemove = document.createElement('button');
+        const btnRemove = document.createElement('button');
         btnRemove.className = 'btn remove';
         btnRemove.textContent = 'REMOVE';
 
-        section2.append(card);
-        card.append(title);
-        card.append(author);
-        card.append(pages);
-        card.append(btnStatus);
-        card.append(btnRemove);
+        section.append(card);
+        card.append(title, author, pages, btnStatus, btnRemove);
         const cardId = card.dataset.id = i;
 
         btnRemove.addEventListener('click', () => {
-            console.log('aaaaaaaaaaaaaa');
             console.log(myLibrary);
             myLibrary.splice(cardId, 1);
             appendBook();

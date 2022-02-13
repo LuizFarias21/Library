@@ -6,29 +6,43 @@ html, body {
 
 body {
     background-color: rgb(224, 224, 224);
-    
+    display: flex;
+    flex-direction: column;
 }
 
-.section-1 {
-    height: 15vh;
+header {
+    width: 100%;
+    height: 12vh;
+    background-color: #131313;
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    box-shadow: 0px 3px 10px rgb(146, 146, 146);
+}
+
+.header-title {
+    color: white;
+    font-size: 2.5rem;
+    margin-left: 5vh;
 }
 
 .add-book {
-    background-image: linear-gradient(#4dbcfc, #40a1da);
-    width: 150px;
-    height: 50px;
-    border: 2px solid black;
+    background-color: #1B1B1B;
+    width: 10%;
+    height: 50%;
     font-weight: bold;
-    border-radius: 5px;
-    font-size: 1.3rem;
+    border: none;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    font-size: 1.1rem;
     transition: 0.3s;
+    margin-right: 5vh;
+    color: rgb(172, 172, 172);
 }
 
 .add-book:hover {
-    filter: brightness(90%);
+    filter: brightness(1.5);
     transform: scale(1.05);
     cursor: pointer;
 }
@@ -37,21 +51,35 @@ body {
     filter: brightness(70%);
 }
 
-.section-2 {
-    margin: 40px;
+.content {
+    margin-top: 12vh;
+    display: flex;
+    
+}
+
+aside {
+    width: 350px;
+    height: 88vh;
+    background-color: #F4F4F4;
+    position: fixed;
+    right: 0;
+    box-shadow: 3px 0px 10px rgb(107, 107, 107);
+}
+
+section {
+    margin-right: 350px;
     height: 85vh;
+    width: 100%;
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
 }
 
 .card {
-    
-    margin: 10px;
-    min-width: 300px;
-    min-height: 200px;
-    max-width: 40%;
-    max-height: 300px;
+    min-width: 32%;
+    min-height: 45vh;
+    max-width: 32%;
+    max-height: 45vh;
+    margin: 10px 0px 0px 10px;
     background-color: rgb(214, 214, 214);
     border-radius: 7px;
     border: 2px solid gray;
